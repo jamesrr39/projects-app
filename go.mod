@@ -3,6 +3,7 @@ module github.com/jamesrr39/projects-app
 go 1.23.1
 
 require (
+	github.com/go-git/go-billy/v6 v6.0.0-20250627091229-31e2a16eef30
 	github.com/go-git/go-git/v6 v6.0.0-20250923192830-1ad5b9c7da82
 	github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
@@ -17,7 +18,6 @@ require (
 	github.com/cyphar/filepath-securejoin v0.4.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/go-git/gcfg/v2 v2.0.2 // indirect
-	github.com/go-git/go-billy/v6 v6.0.0-20250627091229-31e2a16eef30 // indirect
 	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
 	github.com/kevinburke/ssh_config v1.4.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
