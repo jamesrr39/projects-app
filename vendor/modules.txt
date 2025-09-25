@@ -61,6 +61,9 @@ github.com/emirpasic/gods/lists/arraylist
 github.com/emirpasic/gods/trees
 github.com/emirpasic/gods/trees/binaryheap
 github.com/emirpasic/gods/utils
+# github.com/go-chi/chi/v5 v5.2.3
+## explicit; go 1.20
+github.com/go-chi/chi/v5
 # github.com/go-git/gcfg/v2 v2.0.2
 ## explicit; go 1.21
 github.com/go-git/gcfg/v2
@@ -132,6 +135,9 @@ github.com/golang/groupcache/lru
 # github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f
 ## explicit; go 1.18
 github.com/jamesrr39/go-errorsx
+# github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba
+## explicit; go 1.21.4
+github.com/jamesrr39/go-openapix
 # github.com/kevinburke/ssh_config v1.4.0
 ## explicit; go 1.18
 github.com/kevinburke/ssh_config
@@ -143,9 +149,39 @@ github.com/klauspost/cpuid/v2
 github.com/pjbgf/sha1cd
 github.com/pjbgf/sha1cd/internal
 github.com/pjbgf/sha1cd/ubc
+# github.com/santhosh-tekuri/jsonschema/v3 v3.1.0
+## explicit; go 1.15
+github.com/santhosh-tekuri/jsonschema/v3
 # github.com/sergi/go-diff v1.4.0
 ## explicit; go 1.13
 github.com/sergi/go-diff/diffmatchpatch
+# github.com/swaggest/form/v5 v5.1.1
+## explicit; go 1.13
+github.com/swaggest/form/v5
+# github.com/swaggest/jsonschema-go v0.3.78
+## explicit; go 1.18
+github.com/swaggest/jsonschema-go
+# github.com/swaggest/openapi-go v0.2.60
+## explicit; go 1.18
+github.com/swaggest/openapi-go
+github.com/swaggest/openapi-go/internal
+github.com/swaggest/openapi-go/openapi3
+# github.com/swaggest/refl v1.4.0
+## explicit; go 1.17
+github.com/swaggest/refl
+# github.com/swaggest/rest v0.2.75
+## explicit; go 1.18
+github.com/swaggest/rest
+github.com/swaggest/rest/chirouter
+github.com/swaggest/rest/jsonschema
+github.com/swaggest/rest/nethttp
+github.com/swaggest/rest/openapi
+github.com/swaggest/rest/request
+github.com/swaggest/rest/response
+# github.com/swaggest/usecase v1.3.1
+## explicit; go 1.18
+github.com/swaggest/usecase
+github.com/swaggest/usecase/status
 # golang.org/x/crypto v0.41.0
 ## explicit; go 1.23.0
 golang.org/x/crypto/argon2
@@ -164,6 +200,9 @@ golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
 golang.org/x/crypto/ssh/knownhosts
+# golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842
+## explicit; go 1.20
+golang.org/x/exp/maps
 # golang.org/x/net v0.43.0
 ## explicit; go 1.23.0
 golang.org/x/net/internal/socks
@@ -176,3 +215,6 @@ golang.org/x/sys/windows
 # gopkg.in/alecthomas/kingpin.v2 v2.2.6
 ## explicit
 gopkg.in/alecthomas/kingpin.v2
+# gopkg.in/yaml.v2 v2.4.0
+## explicit; go 1.15
+gopkg.in/yaml.v2

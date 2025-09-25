@@ -3,9 +3,13 @@ module github.com/jamesrr39/projects-app
 go 1.23.1
 
 require (
+	github.com/go-chi/chi/v5 v5.2.3
 	github.com/go-git/go-billy/v6 v6.0.0-20250627091229-31e2a16eef30
 	github.com/go-git/go-git/v6 v6.0.0-20250923192830-1ad5b9c7da82
 	github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f
+	github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba
+	github.com/swaggest/openapi-go v0.2.60
+	github.com/swaggest/rest v0.2.75
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 )
 
@@ -22,8 +26,15 @@ require (
 	github.com/kevinburke/ssh_config v1.4.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/pjbgf/sha1cd v0.5.0 // indirect
+	github.com/santhosh-tekuri/jsonschema/v3 v3.1.0 // indirect
 	github.com/sergi/go-diff v1.4.0 // indirect
+	github.com/swaggest/form/v5 v5.1.1 // indirect
+	github.com/swaggest/jsonschema-go v0.3.78 // indirect
+	github.com/swaggest/refl v1.4.0 // indirect
+	github.com/swaggest/usecase v1.3.1 // indirect
 	golang.org/x/crypto v0.41.0 // indirect
+	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
 	golang.org/x/net v0.43.0 // indirect
 	golang.org/x/sys v0.35.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

@@ -6,31 +6,86 @@ import (
 
 	"github.com/jamesrr39/go-errorsx"
 	"github.com/jamesrr39/projects-app/dal"
+	"github.com/jamesrr39/projects-app/domain"
+	"github.com/jamesrr39/projects-app/webservices"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
-func main() {
-	filePath := kingpin.Arg("filepath", "").Required().String()
-	kingpin.Parse()
+var app *kingpin.Application
 
-	err := run(*filePath)
-	errorsx.ExitIfErr(err)
+func main() {
+	app = kingpin.New("projects app", "")
+
+	setupStatus()
+	setupGenerateOpenapiSpec()
+
+	kingpin.MustParse(app.Parse(os.Args[1:]))
+
 }
 
-func run(filePath string) errorsx.Error {
-	var err error
+const (
+	SpecFormatYAML       = "yaml"
+	SpecFormatJSON       = "json"
+	SpecFormatJSONPretty = "jsonpretty"
+)
 
-	projectScanner := dal.ProjectScanner{Projects: []dal.Project{}}
-	err = projectScanner.ScanForProjects(filePath)
-	if err != nil {
-		return errorsx.Wrap(err)
-	}
+func setupGenerateOpenapiSpec() {
 
-	b, err := json.MarshalIndent(projectScanner.Projects, "", "\t")
-	if err != nil {
-		return errorsx.Wrap(err)
-	}
+	cmd := app.Command("generate-openapi-spec", "")
+	format := cmd.Flag("format", "output format").Short('F').Default(SpecFormatYAML).Enum(SpecFormatYAML, SpecFormatJSON, SpecFormatJSONPretty)
+	outputFilePath := cmd.Flag("output", "").Short('O').Default(os.Stdout.Name()).String()
+	cmd.Action(func(pc *kingpin.ParseContext) error {
+		apiSchema, _ := webservices.CreateApiRouter(nil, "")
 
-	os.Stdout.Write(b)
-	return nil
+		spec := apiSchema.Reflector().Spec
+
+		specMarshalFuncMap := map[string]func() ([]byte, error){
+			SpecFormatYAML: spec.MarshalYAML,
+			SpecFormatJSON: spec.MarshalJSON,
+			SpecFormatJSONPretty: func() ([]byte, error) {
+				return json.MarshalIndent(spec, "", "\t")
+			},
+		}
+
+		specMarshalFunc, ok := specMarshalFuncMap[*format]
+		if !ok {
+			return errorsx.Errorf("unknown format type: %q", *format)
+		}
+
+		specBytes, err := specMarshalFunc()
+		if err != nil {
+			return errorsx.ErrWithStack(errorsx.Wrap(err))
+		}
+
+		err = os.WriteFile(*outputFilePath, specBytes, 0644)
+		if err != nil {
+			return errorsx.ErrWithStack(errorsx.Wrap(err))
+		}
+
+		return nil
+	})
+}
+
+func setupStatus() {
+
+	cmd := app.Command("status", "")
+	filePath := cmd.Arg("filepath", "").Required().String()
+
+	cmd.Action(func(pc *kingpin.ParseContext) error {
+		var err error
+
+		projectScanner := dal.ProjectScanner{Projects: []domain.Project{}}
+		err = projectScanner.ScanForProjects(*filePath)
+		if err != nil {
+			return errorsx.ErrWithStack(errorsx.Wrap(err))
+		}
+
+		b, err := json.MarshalIndent(projectScanner.Projects, "", "\t")
+		if err != nil {
+			return errorsx.ErrWithStack(errorsx.Wrap(err))
+		}
+
+		os.Stdout.Write(b)
+		return nil
+	})
 }

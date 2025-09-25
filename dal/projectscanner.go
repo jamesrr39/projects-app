@@ -10,36 +10,12 @@ import (
 	"github.com/go-git/go-git/v6"
 	"github.com/go-git/go-git/v6/plumbing/cache"
 	"github.com/go-git/go-git/v6/storage/filesystem"
+
+	"github.com/jamesrr39/projects-app/domain"
 )
 
-type Project struct {
-	FilePath string   `json:"filePath"`
-	GitStats GitStats `json:"gitStats"`
-}
-
 type ProjectScanner struct {
-	Projects []Project `json:"projects"`
-}
-
-type GitHead struct {
-	Text string `json:"text"`
-}
-
-type GitStatus struct {
-	Clean bool `json:"clean"`
-	// Text  string // can take a long time to return if lots of changes
-}
-
-type GitRemote struct {
-	Name   string   `json:"name"`
-	URLs   []string `json:"urls"`
-	Mirror bool     `json:"mirror"`
-}
-
-type GitStats struct {
-	Head    GitHead     `json:"head"`
-	Status  GitStatus   `json:"status"`
-	Remotes []GitRemote `json:"remotes"`
+	Projects []domain.Project `json:"projects"`
 }
 
 func (ps *ProjectScanner) ScanForProjects(baseDir string) errorsx.Error {
@@ -79,22 +55,22 @@ func (ps *ProjectScanner) ScanForProjects(baseDir string) errorsx.Error {
 			return errorsx.Wrap(err, "dir", baseDir, "gitDir", gitDir)
 		}
 
-		remotes := []GitRemote{}
+		remotes := []domain.GitRemote{}
 		for _, rawRemote := range rawRemotes {
-			remotes = append(remotes, GitRemote{
+			remotes = append(remotes, domain.GitRemote{
 				Name:   rawRemote.Config().Name,
 				URLs:   rawRemote.Config().URLs,
 				Mirror: rawRemote.Config().Mirror,
 			})
 		}
 
-		ps.Projects = append(ps.Projects, Project{
+		ps.Projects = append(ps.Projects, domain.Project{
 			FilePath: baseDir,
-			GitStats: GitStats{
-				Head: GitHead{
+			GitStats: domain.GitStats{
+				Head: domain.GitHead{
 					Text: head.String(),
 				},
-				Status: GitStatus{
+				Status: domain.GitStatus{
 					Clean: status.IsClean(),
 					// Text:  status.String(),
 				},
