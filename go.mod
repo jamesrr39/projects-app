@@ -10,6 +10,7 @@ require (
 	github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba
 	github.com/swaggest/openapi-go v0.2.60
 	github.com/swaggest/rest v0.2.75
+	github.com/swaggest/swgui v1.8.4
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 )
 
@@ -18,6 +19,7 @@ require (
 	github.com/ProtonMail/go-crypto v1.3.0 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20240927000941-0f3dac36c52b // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.4.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect

@@ -2,7 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"log/slog"
+	"net/http"
 	"os"
+	"time"
 
 	"github.com/jamesrr39/go-errorsx"
 	"github.com/jamesrr39/projects-app/dal"
@@ -18,6 +21,7 @@ func main() {
 
 	setupStatus()
 	setupGenerateOpenapiSpec()
+	setupServe()
 
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
@@ -58,6 +62,36 @@ func setupGenerateOpenapiSpec() {
 		}
 
 		err = os.WriteFile(*outputFilePath, specBytes, 0644)
+		if err != nil {
+			return errorsx.ErrWithStack(errorsx.Wrap(err))
+		}
+
+		return nil
+	})
+}
+
+func setupServe() {
+	cmd := app.Command("serve", "")
+	filePath := cmd.Arg("filepath", "").Required().String()
+	addr := cmd.Flag("addr", "").Default("localhost:8080").String()
+
+	cmd.Action(func(pc *kingpin.ParseContext) error {
+		var err error
+
+		projectScanner := dal.ProjectScanner{Projects: []domain.Project{}}
+
+		router, _ := webservices.CreateRouter(&projectScanner, *filePath)
+
+		server := &http.Server{
+			Addr:           *addr,
+			Handler:        router,
+			ReadTimeout:    10 * time.Second,
+			WriteTimeout:   10 * time.Second,
+			MaxHeaderBytes: 1 << 20,
+		}
+
+		slog.Info("serving", "address", *addr)
+		err = server.ListenAndServe()
 		if err != nil {
 			return errorsx.ErrWithStack(errorsx.Wrap(err))
 		}

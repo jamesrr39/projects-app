@@ -36,6 +36,9 @@ github.com/alecthomas/template/parse
 # github.com/alecthomas/units v0.0.0-20240927000941-0f3dac36c52b
 ## explicit; go 1.15
 github.com/alecthomas/units
+# github.com/cespare/xxhash/v2 v2.3.0
+## explicit; go 1.11
+github.com/cespare/xxhash/v2
 # github.com/cloudflare/circl v1.6.1
 ## explicit; go 1.22.0
 github.com/cloudflare/circl/dh/x25519
@@ -64,6 +67,7 @@ github.com/emirpasic/gods/utils
 # github.com/go-chi/chi/v5 v5.2.3
 ## explicit; go 1.20
 github.com/go-chi/chi/v5
+github.com/go-chi/chi/v5/middleware
 # github.com/go-git/gcfg/v2 v2.0.2
 ## explicit; go 1.21
 github.com/go-git/gcfg/v2
@@ -173,11 +177,18 @@ github.com/swaggest/refl
 ## explicit; go 1.18
 github.com/swaggest/rest
 github.com/swaggest/rest/chirouter
+github.com/swaggest/rest/gzip
 github.com/swaggest/rest/jsonschema
 github.com/swaggest/rest/nethttp
 github.com/swaggest/rest/openapi
 github.com/swaggest/rest/request
 github.com/swaggest/rest/response
+github.com/swaggest/rest/response/gzip
+# github.com/swaggest/swgui v1.8.4
+## explicit; go 1.17
+github.com/swaggest/swgui
+github.com/swaggest/swgui/internal
+github.com/swaggest/swgui/v3cdn
 # github.com/swaggest/usecase v1.3.1
 ## explicit; go 1.18
 github.com/swaggest/usecase
