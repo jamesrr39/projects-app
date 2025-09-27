@@ -38,6 +38,8 @@ func CreateRouter(projectScanner *dal.ProjectScanner, baseDir string) (*chiroute
 
 	rootRouter.Mount("/api", apiRouter)
 
+	rootRouter.Mount("/", NewClientHandler())
+
 	return rootRouter, apiSchema
 }
 

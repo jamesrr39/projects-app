@@ -8,6 +8,8 @@ require (
 	github.com/go-git/go-git/v6 v6.0.0-20250923192830-1ad5b9c7da82
 	github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f
 	github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba
+	github.com/jamesrr39/goutil v0.0.0-20240329225739-244c41ec945f
+	github.com/joho/godotenv v1.5.1
 	github.com/swaggest/openapi-go v0.2.60
 	github.com/swaggest/rest v0.2.75
 	github.com/swaggest/swgui v1.8.4

@@ -12,11 +12,14 @@ import (
 	"github.com/jamesrr39/projects-app/domain"
 	"github.com/jamesrr39/projects-app/webservices"
 	"gopkg.in/alecthomas/kingpin.v2"
+
+	"github.com/joho/godotenv"
 )
 
 var app *kingpin.Application
 
 func main() {
+	godotenv.Load()
 	app = kingpin.New("projects app", "")
 
 	setupStatus()

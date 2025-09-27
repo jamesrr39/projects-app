@@ -42,6 +42,10 @@ github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f h1:OLhwBKcNAd
 github.com/jamesrr39/go-errorsx v0.0.0-20240715215442-3c0d739e9f0f/go.mod h1:oiIKD1Df+p6FYolcvQXbABvfxDUhMIeUMYpN74hqvyo=
 github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba h1:xDC1oV0fTF1jAB0atJNpGHa5ZhReHHU8RtOg3ilyQ5w=
 github.com/jamesrr39/go-openapix v0.0.0-20240805224438-613a47dbccba/go.mod h1:OE6Kh7HayDMcr32LzYAPtbbkf2uI9atYO2nMEqvDG4Q=
+github.com/jamesrr39/goutil v0.0.0-20240329225739-244c41ec945f h1:YogDPapXY1GZIsDZFY7n/z2UdW0XVtXAeTrHOQd9HBU=
+github.com/jamesrr39/goutil v0.0.0-20240329225739-244c41ec945f/go.mod h1:p6PAidK3Sb0y1aSZH2bGQzpnCYhMqPMHj7/emA/LvnI=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/kevinburke/ssh_config v1.4.0 h1:6xxtP5bZ2E4NF5tuQulISpTO2z8XbtH8cg1PWkxoFkQ=
 github.com/kevinburke/ssh_config v1.4.0/go.mod h1:q2RIzfka+BXARoNexmF9gkxEX7DmvbW9P4hIVx2Kg4M=
 github.com/klauspost/cpuid/v2 v2.3.0 h1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzhA9Y=
