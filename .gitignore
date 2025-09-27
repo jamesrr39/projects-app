@@ -1,2 +1,16 @@
 # Added by goreleaser init:
 dist/
+
+
+# web client
+vite.config.ts.timestamp-*.mjs
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+telemetry.json
