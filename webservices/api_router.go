@@ -43,7 +43,7 @@ func CreateApiRouter(projectScanner *dal.ProjectScanner, baseDir string) (*opena
 	)
 
 	apiRouter.Route("/v1", func(r chi.Router) {
-		openapix.Post(r, "/projects", GetAllProjects(projectScanner, baseDir))
+		openapix.Get(r, "/projects", GetAllProjects(projectScanner, baseDir))
 	})
 
 	// check array types are marked as non-null; i.e. no items will return "[]" instead of "null"

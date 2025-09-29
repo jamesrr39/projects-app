@@ -2,7 +2,7 @@ package domain
 
 type Project struct {
 	FilePath string   `json:"filePath"`
-	GitStats GitStats `json:"gitStats"`
+	GitStats GitStats `json:"gitStats" required:"true"`
 }
 
 type GitHead struct {
@@ -15,13 +15,14 @@ type GitStatus struct {
 }
 
 type GitRemote struct {
-	Name   string   `json:"name"`
-	URLs   []string `json:"urls" nullable:"false"`
-	Mirror bool     `json:"mirror"`
+	Name     string   `json:"name"`
+	GitStats GitStats `json:"gitStats" required:"true"`
+	URLs     []string `json:"urls" nullable:"false" required:"true"`
+	Mirror   bool     `json:"mirror"`
 }
 
 type GitStats struct {
-	Head    GitHead     `json:"head"`
-	Status  GitStatus   `json:"status"`
-	Remotes []GitRemote `json:"remotes" nullable:"false"`
+	Head    GitHead     `json:"head" required:"true"`
+	Status  GitStatus   `json:"status" required:"true"`
+	Remotes []GitRemote `json:"remotes" nullable:"false" required:"true"`
 }

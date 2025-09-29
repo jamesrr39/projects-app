@@ -14,12 +14,12 @@ import (
 type EmptyStruct struct{}
 
 type ListProjectsResponse struct {
-	Projects []domain.Project `json:"projects" nullable:"false"`
+	Projects []domain.Project `json:"projects" nullable:"false" required:"true"`
 }
 
 func GetAllProjects(d *dal.ProjectScanner, baseDir string) *nethttp.Handler {
 	return openapix.MustCreateOpenapiEndpoint(
-		"Get service info",
+		"Get projects listing",
 		&openapix.HandlerOptions{},
 		func(ctx context.Context, input *EmptyStruct, output *ListProjectsResponse) error {
 

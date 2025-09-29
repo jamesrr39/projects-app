@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  description: REST API definitions for Projects App
+  title: Projects
+  version: "0"
+servers:
+- description: API server
+  url: /api
+paths:
+  /v1/projects:
+    get:
+      operationId: getProjectsListing
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProjectsResponse'
+          description: OK
+      summary: Get projects listing
+components:
+  schemas:
+    GitHead:
+      properties:
+        text:
+          type: string
+      type: object
+    GitRemote:
+      properties:
+        gitStats:
+          $ref: '#/components/schemas/GitStats'
+        mirror:
+          type: boolean
+        name:
+          type: string
+        urls:
+          items:
+            type: string
+          type: array
+      required:
+      - gitStats
+      - urls
+      type: object
+    GitStats:
+      properties:
+        head:
+          $ref: '#/components/schemas/GitHead'
+        remotes:
+          items:
+            $ref: '#/components/schemas/GitRemote'
+          type: array
+        status:
+          $ref: '#/components/schemas/GitStatus'
+      required:
+      - head
+      - status
+      - remotes
+      type: object
+    GitStatus:
+      properties:
+        clean:
+          type: boolean
+      type: object
+    Project:
+      properties:
+        filePath:
+          type: string
+        gitStats:
+          $ref: '#/components/schemas/GitStats'
+      required:
+      - gitStats
+      type: object
+    ListProjectsResponse:
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/Project'
+          type: array
+      required:
+      - projects
+      type: object
