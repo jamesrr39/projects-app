@@ -27,8 +27,6 @@ components:
       type: object
     GitRemote:
       properties:
-        gitStats:
-          $ref: '#/components/schemas/GitStats'
         mirror:
           type: boolean
         name:
@@ -38,7 +36,6 @@ components:
             type: string
           type: array
       required:
-      - gitStats
       - urls
       type: object
     GitStats:

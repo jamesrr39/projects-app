@@ -15,10 +15,9 @@ type GitStatus struct {
 }
 
 type GitRemote struct {
-	Name     string   `json:"name"`
-	GitStats GitStats `json:"gitStats" required:"true"`
-	URLs     []string `json:"urls" nullable:"false" required:"true"`
-	Mirror   bool     `json:"mirror"`
+	Name   string   `json:"name"`
+	URLs   []string `json:"urls" nullable:"false" required:"true"`
+	Mirror bool     `json:"mirror"`
 }
 
 type GitStats struct {

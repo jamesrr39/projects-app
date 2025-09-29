@@ -8,7 +8,6 @@ export type GitHead = {
 };
 
 export type GitRemote = {
-  gitStats: GitStats;
   mirror?: boolean;
   name?: string;
   urls: string[];
