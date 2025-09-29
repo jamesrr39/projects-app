@@ -20,3 +20,7 @@ run_dev_server:
 .PHONY: run_dev_client
 run_dev_client:
 	cd web-client && yarn dev
+
+.PHONY: release
+release:
+	goreleaser release --clean
